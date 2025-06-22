@@ -54,24 +54,27 @@ function animateBG() {
 }
 animateBG();
 
-// Xoay hình trụ khi cuộn (hiệu ứng giống xoay 3D)
-const sections = document.querySelectorAll('.section');
+// Hiệu ứng cuộn trang
+const blurElements = document.querySelectorAll('.section, .project-card, .skill, .mindmap-item');
 
-window.addEventListener('scroll', () => {
-  const scrollPos = window.scrollY;
+blurElements.forEach(el => {
+  el.classList.add('blur-in-init');
+});
 
-  sections.forEach((section, index) => {
-    const offsetTop = section.offsetTop;
-    const height = section.offsetHeight;
-    const rotation = ((scrollPos - offsetTop) / height) * 90;
-
-    if (scrollPos + window.innerHeight > offsetTop && scrollPos < offsetTop + height) {
-      section.style.transform = `rotateX(${rotation}deg)`;
+const blurObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('blur-in-visible');
     } else {
-      section.style.transform = 'rotateX(0deg)';
+      entry.target.classList.remove('blur-in-visible'); // Cho phép hiệu ứng kết thúc khi rời khỏi màn
     }
   });
+}, {
+  threshold: 0.1
 });
+
+blurElements.forEach(el => blurObserver.observe(el));
+
 
 // Tạo modal khi click vào mindmap-item
 document.querySelectorAll('.mindmap-item').forEach(item => {
@@ -132,3 +135,33 @@ window.addEventListener("click", (e) => {
     modal.style.display = "none";
   }
 });
+
+// Rót đầy thanh kỹ năng khi scroll tới
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const level = entry.target.querySelector(".level");
+      if (level && !level.classList.contains("filled")) {
+        const percent = level.getAttribute("data-width");
+        level.style.width = percent;
+        level.classList.add("filled");
+      }
+    }
+  });
+}, { threshold: 0.6 });
+
+document.querySelectorAll(".skill").forEach(skill => {
+  skillObserver.observe(skill);
+});
+
+let musicPlaying = false;
+const music = document.getElementById("background-music");
+
+function toggleMusic() {
+  if (musicPlaying) {
+    music.pause();
+  } else {
+    music.play();
+  }
+  musicPlaying = !musicPlaying;
+}

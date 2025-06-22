@@ -20,6 +20,16 @@
   <div class="parallax-bg" id="parallax"></div>
   <div class="overlay"></div>
 
+  <audio id="background-music" loop>
+    <source src="ms-bg.mp3" type="audio/mpeg">
+    Trình duyệt không hỗ trợ audio.
+  </audio>
+
+  <!-- Nút bật/tắt nhạc -->
+  <div class="music-toggle" onclick="toggleMusic()">
+    <i class="fas fa-music"></i>
+  </div>
+
   <!-- Nội dung chính -->
   <header class="hero" data-aos="fade-down">
     <div class="hero-content">
@@ -65,9 +75,16 @@
         <div class="about-text" data-aos="fade-left">
           <h3>Đôi lời về bản thân</h3>
           <p>
-            Tôi là Lê Minh Đức, sinh viên năm 2 đang theo học ngành Công Nghệ Thông Tin tại Trường ĐH Giao thông Vận tải TP.HCM.<br><br>
-            Đam mê <em>phát triển game</em>, thiết kế web và trải nghiệm người dùng.
+            Tôi là Lê Minh Đức, là một người luôn có sự cố gắng không những trong học tập mà còn trong cuộc sống hằng ngày.
+            Bên cạnh đó, bản thân có một tinh thần trách nhiệm cao cũng như khả năng lãnh đạo tốt nên thường được mọi người xung quanh tin tưởng 
+            giao cho các chức vụ cao trong các dự án làm việc nhóm.
+            <br>
           </p>
+          <p>
+            Tôi hiện đang là sinh viên năm 2 đang theo học ngành Công Nghệ Thông Tin tại Trường ĐH Giao thông Vận tải TP.HCM.
+            <br><br>
+          </p>
+          Đam mê <em>phát triển game</em>, thiết kế web và trải nghiệm người dùng.
 
           <h3 style="margin-top: 40px;">Thông tin cá nhân</h3>
           <div class="personal-info">
@@ -223,7 +240,7 @@
 
         <div class="timeline-item left">
           <div class="content">
-            <div class="date">2023 - Nay</div>
+            <div class="date">2023</div>
             <p>Đại học GTVT TP.HCM – Chuyên ngành Công nghệ Thông tin.</p>
           </div>
         </div>
@@ -245,19 +262,64 @@
 
       <div class="skills-section">
         <h3>Skills</h3>
-        <div class="skill"><span>HTML & CSS</span><div class="bar"><div class="level" style="width: 80%"></div></div></div>
-        <div class="skill"><span>Image & Design Tools</span><div class="bar"><div class="level" style="width: 60%"></div></div></div>
-        <div class="skill"><span>C/C++</span><div class="bar"><div class="level" style="width: 85%"></div></div></div>
-        <div class="skill"><span>C#</span><div class="bar"><div class="level" style="width: 80%"></div></div></div>
-        <div class="skill"><span>Java</span><div class="bar"><div class="level" style="width: 80%"></div></div></div>
-        <div class="skill"><span>Python</span><div class="bar"><div class="level" style="width: 70%"></div></div></div>
-        <div class="skill"><span>Database</span><div class="bar"><div class="level" style="width: 65%"></div></div></div>
+        <div class="skill">
+          <span>HTML & CSS</span>
+          <div class="bar">
+            <div class="level" data-width="80%"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <span>Image & Design Tools</span>
+          <div class="bar">
+            <div class="level" data-width="60%"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <span>C/C++</span>
+          <div class="bar">
+            <div class="level" data-width="85%"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <span>C#</span>
+          <div class="bar">
+            <div class="level" data-width="80%"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <span>Java</span>
+          <div class="bar">
+            <div class="level" data-width="80%"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <span>Python</span>
+          <div class="bar">
+            <div class="level" data-width="70%"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <span>Database</span>
+          <div class="bar">
+            <div class="level" data-width="65%"></div>
+          </div>
+        </div>
       </div>
 
       <div class="skills-section">
         <h3>Languages</h3>
-        <div class="skill"><span>English</span><div class="bar"><div class="level" style="width: 85%"></div></div></div>
-        <div class="skill"><span>Vietnamese</span><div class="bar"><div class="level" style="width: 100%"></div></div></div>
+        <div class="skill">
+          <span>English</span>
+          <div class="bar">
+            <div class="level" data-width="85%"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <span>Vietnamese</span>
+          <div class="bar">
+            <div class="level" data-width="100%"></div>
+          </div>
+        </div>
       </div>
     </section>
 

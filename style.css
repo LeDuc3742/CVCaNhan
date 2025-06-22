@@ -58,12 +58,12 @@ main {
 /* Reveal Animation */
 .hidden {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(80px) scale(0.95);
+  transition: all 0.8s ease-in-out;
 }
 .show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* Navbar */
@@ -151,22 +151,26 @@ main {
   padding: 100px 20px;
   max-width: 1000px;
   margin: 0 auto;
-  min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
   perspective: 1000px;
   transform-style: preserve-3d;
   transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 
 .section:not(.hero) {
-  background: rgba(0, 0, 0, 0.096); /* nền đen mờ 50% */
+  background: rgba(0, 0, 0, 0.096);
   border-radius: 20px;
-  backdrop-filter: blur(10px); /* làm mờ phần nền phía sau */
+  backdrop-filter: blur(10px);
   padding: 60px 40px;
-  margin-bottom: 50px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4); /* đổ bóng nhẹ */
+  margin-bottom: 100px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
 }
 
 .section h2 {
@@ -309,6 +313,7 @@ main {
 
 .skill {
   margin-bottom: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill span {
@@ -328,7 +333,7 @@ main {
   background-color: #7d73ff;
   height: 100%;
   width: 0;
-  transition: width 1s ease-in-out;
+  transition: width 1.2s ease-in-out;
   border-radius: 4px;
 }
 
@@ -667,10 +672,17 @@ footer {
   display: inline-block;
   padding: 12px 16px;
   border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 204, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.06);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   max-width: 90%;
   position: relative;
   z-index: 2;
+}
+
+.timeline-item .content p {
+  text-align: left;
 }
 
 .timeline-item .date {
@@ -710,11 +722,20 @@ footer {
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .award-item h4 {
   color: #fdfdfd;
   margin-bottom: 6px;
+}
+
+.timeline-item .content:hover,
+.award-item:hover,
+.skill:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 204, 255, 0.2);
+  transition: all 0.3s ease-in-out;
 }
 
 .cv-buttons {
@@ -730,4 +751,49 @@ footer {
   gap: 8px;
   color:#ffffff;
   background:#412daa76;
+}
+
+/* Trạng thái ban đầu */
+.blur-in-init {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+/* Khi phần tử hiển thị */
+.blur-in-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+.hover-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.hover-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 204, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.music-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #00ccff;
+  color: #00ccff;
+  padding: 10px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s, transform 0.3s;
+}
+.music-toggle:hover {
+  background: #00ccff;
+  color: #000;
+  transform: scale(1.1);
 }
